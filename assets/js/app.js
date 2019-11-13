@@ -171,7 +171,7 @@ function updateToolTip(chosenXaxis, chosenYaxis, circlesGroup){
                         .classed("y-axis", true)
                         .call(leftAxis)
     
-    let crlTxtGroup = chartGroup.selectAll("circle")
+    let crlTxtGroup = chartGroup.selectAll("mycircles")
                       .data(healthData)
                       .enter()
                       .append("g")
