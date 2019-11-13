@@ -129,10 +129,12 @@ function updateToolTip(chosenXaxis, chosenYaxis, circlesGroup){
   circlesGroup.call(toolTip);
   circlesGroup.on("mouseover", function(data){
     toolTip.show(data, this);
+    d3.select(this).style("stroke", "black");
     
   })
   circlesGroup.on("mouseout", function(data, index){
     toolTip.hide(data, this)
+    d3.select(this).style("stroke", "white");
   })
   return circlesGroup;
 }
@@ -186,7 +188,7 @@ function updateToolTip(chosenXaxis, chosenYaxis, circlesGroup){
     let txtGroup = crlTxtGroup.append("text")
                               .text(d=>d.abbr)
                               .attr("x", d=>xLinearScale(d[chosenXaxis]))
-                              .attr("y", d=>yLinearScale(d[chosenYaxis]))
+                              .attr("y", d=>yLinearScale(d[chosenYaxis])+3)
                               .classed("stateText", true)
                               .style("font-size", "7px")
                               .style("font-weight", "800")
